@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "KQLQueryset",
+    "displayName": "Monitoring_Queryset",
+    "description": "Monitoring_Queryset"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "cd3d2312-efa3-8b23-4362-ce6deb41085f"
+  }
+}

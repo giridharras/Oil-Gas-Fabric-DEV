@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Reflex",
+    "displayName": "Monitoring_Activator",
+    "description": "Monitoring_Activator"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c324dd33-e3ba-8293-4075-1d7001b4291f"
+  }
+}
