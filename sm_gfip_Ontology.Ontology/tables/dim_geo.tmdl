@@ -1,0 +1,40 @@
+table dim_geo
+	lineageTag: c320daaf-46a6-44b8-94cf-d988619ab80f
+	sourceLineageTag: 46a5d666-8459-4caa-aad5-a30d19e23d78
+
+	column geo_key
+		dataType: int64
+		lineageTag: ab5e6139-bb5e-47dd-ad9a-49d5c8c05ec1
+		sourceLineageTag: b0608420-d975-4e88-bd03-3b699363c7f5
+		sourceColumn: geo_key
+
+	column region
+		dataType: string
+		lineageTag: 0657a8e8-2569-41f8-9e17-a7af7df6584f
+		sourceLineageTag: 50a86ff0-9f6e-4042-99d4-62925a2a8aad
+		sourceColumn: region
+
+	column country
+		dataType: string
+		lineageTag: a63c0a33-2118-4518-a577-a839ba76b858
+		sourceLineageTag: 1110e7a3-9ea2-4acf-b991-32a1b712fe39
+		sourceColumn: country
+
+	partition dim_geo-partition = entity
+		mode: directQuery
+		source
+			entityName: dim_geo
+			expressionSource: 'DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca'
+
+		annotation ONT_WorkspaceId = ea224e1d-5a3b-4811-b9c3-7d78c27f52c9
+
+		annotation ONT_ItemId = e00768f8-f7e7-4e56-b8af-80918c8772ca
+
+		annotation ONT_ItemKind = Dataset
+
+		annotation ONT_ItemName = sm_gfip
+
+		annotation ONT_WorkspaceName = Gopu Exploration
+
+		annotation ONT_PinnedAtUtc = 2026-11-01T10:57:49.7634474+00:00
+

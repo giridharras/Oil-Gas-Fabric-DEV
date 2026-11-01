@@ -1,0 +1,18 @@
+model Model
+
+ref table dim_commodity
+ref table dim_date
+ref table dim_geo
+ref table dim_index
+ref table dim_issuer
+ref table dim_metric
+ref table dim_rating_scale
+ref table dim_security
+ref table fact_commodity_assessment
+ref table fact_fundamentals
+ref table fact_index_level
+ref table fact_price_daily
+ref table fact_rating_event
+
+ref namespace default
+

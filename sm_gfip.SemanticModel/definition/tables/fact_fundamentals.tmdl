@@ -1,0 +1,62 @@
+table fact_fundamentals
+	lineageTag: 947f74df-912a-4c0a-a24b-78f86d932983
+	sourceLineageTag: [gold].[fact_fundamentals]
+
+	column issuer_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ad3bb17-0bd9-44d5-a518-feff6bfcda15
+		sourceLineageTag: issuer_key
+		summarizeBy: sum
+		sourceColumn: issuer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column period_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 80ec4f41-678c-4cb1-a5b6-6535a33b859b
+		sourceLineageTag: period_key
+		summarizeBy: sum
+		sourceColumn: period_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_year
+		dataType: int64
+		formatString: 0
+		lineageTag: b054d8fc-e23d-44d8-b9e9-96bfe0b0ee83
+		sourceLineageTag: fiscal_year
+		summarizeBy: sum
+		sourceColumn: fiscal_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 530c1430-6f34-4ef9-85eb-b05f57aa4499
+		sourceLineageTag: metric_key
+		summarizeBy: none
+		sourceColumn: metric_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column value_usd_m
+		dataType: double
+		lineageTag: 2fc098e5-e75a-4df8-8dd7-3092e56dca75
+		sourceLineageTag: value_usd_m
+		summarizeBy: sum
+		sourceColumn: value_usd_m
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_fundamentals = entity
+		mode: directLake
+		source
+			entityName: fact_fundamentals
+			schemaName: gold
+			expressionSource: 'DirectLake - LH_API_INGESTION'
+

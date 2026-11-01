@@ -1,0 +1,39 @@
+table dim_index
+	lineageTag: 6a289dfe-d5e7-4fa0-9bdb-82e43c7903ef
+	sourceLineageTag: [gold].[dim_index]
+
+	column index_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 19d079a3-e95e-4542-9787-d8c981297564
+		sourceLineageTag: index_key
+		summarizeBy: sum
+		sourceColumn: index_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column index_name
+		dataType: string
+		lineageTag: 54813484-06a3-4d1d-a7dc-a19b3ec1b7fa
+		sourceLineageTag: index_name
+		summarizeBy: none
+		sourceColumn: index_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column index_family
+		dataType: string
+		lineageTag: ae6d6d33-7775-46f6-bbe9-8965e0cde303
+		sourceLineageTag: index_family
+		summarizeBy: none
+		sourceColumn: index_family
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_index = entity
+		mode: directLake
+		source
+			entityName: dim_index
+			schemaName: gold
+			expressionSource: 'DirectLake - LH_API_INGESTION'
+

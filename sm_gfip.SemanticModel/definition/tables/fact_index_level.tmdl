@@ -1,0 +1,53 @@
+table fact_index_level
+	lineageTag: b6edd176-6366-434a-8477-175c86586852
+	sourceLineageTag: [gold].[fact_index_level]
+
+	column index_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 878ac58a-82ab-4d97-9ddf-fbd692680319
+		sourceLineageTag: index_key
+		summarizeBy: sum
+		sourceColumn: index_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: d651bbf9-88d0-4eeb-aa7c-805ca6a01e12
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column level
+		dataType: double
+		lineageTag: fb4f9392-379b-48f3-a460-1a70a580d66c
+		sourceLineageTag: level
+		summarizeBy: sum
+		sourceColumn: level
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column daily_return
+		dataType: double
+		lineageTag: 75bcc7a4-069d-4d42-b123-42a3385c5ec9
+		sourceLineageTag: daily_return
+		summarizeBy: sum
+		sourceColumn: daily_return
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_index_level = entity
+		mode: directLake
+		source
+			entityName: fact_index_level
+			schemaName: gold
+			expressionSource: 'DirectLake - LH_API_INGESTION'
+

@@ -1,0 +1,230 @@
+table dim_commodity
+	lineageTag: a8999d50-ede9-4ea0-9d03-2b7e866bc699
+	sourceLineageTag: [gold].[dim_commodity]
+
+	measure 'Avg Close' = ```
+			AVERAGE ( fact_price_daily[close] )
+			
+			```
+		lineageTag: 69d253f4-5496-4417-8796-bf8cb779ee6d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Volume' = ```
+			SUM ( fact_price_daily[volume] )
+			
+			```
+		formatString: 0
+		lineageTag: da947227-ddf5-4278-b31a-d191a6bd9a02
+
+		changedProperty = Name
+
+	measure 'Market Cap ($M)' = ```
+			
+			    CALCULATE ( SUM ( fact_price_daily[market_cap_m] ), LASTDATE ( dim_date[date] ) )
+			```
+		lineageTag: 11b428b1-93de-4f21-9f37-2534bcd9ac5c
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Daily Return %' =
+			
+			VAR cur = [Avg Close]
+			VAR prev = CALCULATE ( [Avg Close], DATEADD ( dim_date[date], -1, DAY ) )
+			RETURN DIVIDE ( cur - prev, prev )
+		lineageTag: 48158a36-74ba-4512-b334-2929450e51f8
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'YTD Return %' =
+			
+			VAR s = CALCULATE ( [Avg Close], DATESYTD ( dim_date[date] ) , FIRSTDATE ( DATESYTD ( dim_date[date] ) ) )
+			VAR e = CALCULATE ( [Avg Close], LASTDATE ( DATESYTD ( dim_date[date] ) ) )
+			RETURN DIVIDE ( e - s, s )
+		lineageTag: a057e2d6-95f1-4fa4-adb5-fa4fb3c2a628
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Rating Actions' = COUNTROWS ( fact_rating_event )
+		formatString: 0
+		lineageTag: 1699f2bc-414b-4038-9627-a3029e2a811f
+
+		changedProperty = Name
+
+	measure Upgrades = ```
+			CALCULATE ( [Rating Actions], fact_rating_event[action_type] = "Upgrade" )
+			
+			```
+		formatString: 0
+		lineageTag: e3458a19-a7b4-4cd8-b208-a26c087080af
+
+		changedProperty = Name
+
+	measure Downgrades = ```
+			CALCULATE ( [Rating Actions], fact_rating_event[action_type] = "Downgrade" )
+			
+			```
+		formatString: 0
+		lineageTag: 17ada6ef-a69b-4b9f-bede-b5c53cad2ae0
+
+		changedProperty = Name
+
+	measure 'Upgrade/Downgrade Ratio' = ```
+			DIVIDE ( [Upgrades], [Downgrades] )
+			
+			```
+		lineageTag: 47c8a8ee-8cb0-4488-99d8-a5382a4e6009
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Default Count' = CALCULATE ( [Rating Actions], fact_rating_event[new_rating_key] = 22 )
+		formatString: 0
+		lineageTag: f49a3252-368a-4fad-9a4b-eda3bf4bddc3
+
+		changedProperty = Name
+
+	measure 'Revenue ($M)' = ```
+			CALCULATE ( SUM ( fact_fundamentals[value_usd_m] ), dim_metric[metric] = "Revenue" )
+			
+			```
+		lineageTag: 04f369c8-45ac-4d48-899a-0fd68e9c9399
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'EBITDA ($M)' = ```
+			CALCULATE ( SUM ( fact_fundamentals[value_usd_m] ), dim_metric[metric] = "EBITDA" )
+			
+			```
+		lineageTag: c791bb21-e387-48e1-b7bf-80c237ea24a6
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'EBITDA Margin' = ```
+			DIVIDE ( [EBITDA ($M)], [Revenue ($M)] )
+			
+			```
+		lineageTag: 8a773a09-2dc3-413b-94ec-05d1bda329c7
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Net Leverage' = ```
+			DIVIDE ( CALCULATE ( SUM ( fact_fundamentals[value_usd_m] ), dim_metric[metric] = "TotalDebt" )
+			                         - CALCULATE ( SUM ( fact_fundamentals[value_usd_m] ), dim_metric[metric] = "Cash" ),
+			                           [EBITDA ($M)] )
+			
+			```
+		lineageTag: 49290ef2-db37-4725-bd74-e60f1e544fe2
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue YoY %' =
+			DIVIDE ( [Revenue ($M)] - CALCULATE ( [Revenue ($M)], SAMEPERIODLASTYEAR ( dim_date[date] ) ),
+			                           CALCULATE ( [Revenue ($M)], SAMEPERIODLASTYEAR ( dim_date[date] ) ) )
+		lineageTag: e4394adb-75f2-465c-bb6a-93667ce18d96
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Assessment' = ```
+			AVERAGE ( fact_commodity_assessment[price] )
+			
+			```
+		lineageTag: 3f860b11-2f49-4aea-b8cd-d7f10273881e
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Index Level' = ```
+			CALCULATE ( AVERAGE ( fact_index_level[level] ), LASTDATE ( dim_date[date] ) )
+			
+			```
+		lineageTag: db03e797-4638-4bfe-9790-f8f5555c9907
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Index Return %' =
+			DIVIDE ( [Index Level] - CALCULATE ( [Index Level], PREVIOUSMONTH ( dim_date[date] ) ),
+			                           CALCULATE ( [Index Level], PREVIOUSMONTH ( dim_date[date] ) ) )
+		lineageTag: d61cac0f-95e9-4997-a119-0d8983db7ba4
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column commodity_key
+		dataType: int64
+		formatString: 0
+		lineageTag: c597a29d-13ec-452f-8cd8-87b6145613c2
+		sourceLineageTag: commodity_key
+		summarizeBy: none
+		sourceColumn: commodity_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column symbol
+		dataType: string
+		lineageTag: 4c413901-397a-4a08-8bd4-cf77ad0af032
+		sourceLineageTag: symbol
+		summarizeBy: none
+		sourceColumn: symbol
+
+		annotation SummarizationSetBy = Automatic
+
+	column commodity
+		dataType: string
+		lineageTag: 0531cd65-fc72-4605-8d26-a07aa83d062f
+		sourceLineageTag: commodity
+		summarizeBy: none
+		sourceColumn: commodity
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit
+		dataType: string
+		lineageTag: 6e265f85-60f3-4db5-ad46-a548d3531a95
+		sourceLineageTag: unit
+		summarizeBy: none
+		sourceColumn: unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column base
+		dataType: double
+		lineageTag: b0ef7406-371e-4fa4-9526-e36e2b2fc9fb
+		sourceLineageTag: base
+		summarizeBy: none
+		sourceColumn: base
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dim_commodity = entity
+		mode: directLake
+		source
+			entityName: dim_commodity
+			schemaName: gold
+			expressionSource: 'DirectLake - LH_API_INGESTION'
+

@@ -1,0 +1,70 @@
+table dim_date
+	lineageTag: 6473e85f-3d08-4f2f-a4c5-2226e4df1544
+	sourceLineageTag: 5a2d61e4-0e6b-44a3-96c1-c8eaa890b274
+
+	column date
+		dataType: dateTime
+		lineageTag: 59e8edf8-1e12-4a92-9e82-f404e19adc4c
+		sourceLineageTag: d00838e3-7672-4ac7-ad28-d63f2296cda6
+		sourceColumn: date
+
+	column date_key
+		dataType: int64
+		lineageTag: 9ad6e556-ae72-4504-92ec-1647b9d28acf
+		sourceLineageTag: 41399614-f049-4159-88c1-e01ae996ed5e
+		sourceColumn: date_key
+
+	column year
+		dataType: int64
+		lineageTag: 070cc029-2b6f-4757-bd70-5ddad9d36e5d
+		sourceLineageTag: 893003e4-dc9e-422b-b1e0-9a2957dc2bf6
+		sourceColumn: year
+
+	column quarter
+		dataType: int64
+		lineageTag: 2ee4f59d-2764-4079-afe9-99eccfe6c34e
+		sourceLineageTag: 266dc1b3-82e4-4110-b610-7475caf9a862
+		sourceColumn: quarter
+
+	column month
+		dataType: int64
+		lineageTag: a26263a7-9129-45f3-92fa-a0414f607419
+		sourceLineageTag: ecc76684-7b66-4edd-997b-988dec5626e5
+		sourceColumn: month
+
+	column month_name
+		dataType: string
+		lineageTag: daf2bf08-e08b-4b49-8d2e-85986cec3a9a
+		sourceLineageTag: 66c662c2-6965-4dac-bb38-df3f1b941e57
+		sourceColumn: month_name
+
+	column dow
+		dataType: int64
+		lineageTag: 2680b5c4-e66b-4598-8030-76ba50f13763
+		sourceLineageTag: 9f2f4466-f20d-4c90-a997-9a489722dfaf
+		sourceColumn: dow
+
+	column is_trading_day
+		dataType: boolean
+		lineageTag: 88fe0d97-6d65-4204-873f-1cbe51b2864b
+		sourceLineageTag: e476dafc-093b-4f5b-93b6-a4a028d1e31e
+		sourceColumn: is_trading_day
+
+	partition dim_date-partition = entity
+		mode: directQuery
+		source
+			entityName: dim_date
+			expressionSource: 'DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca'
+
+		annotation ONT_WorkspaceId = ea224e1d-5a3b-4811-b9c3-7d78c27f52c9
+
+		annotation ONT_ItemId = e00768f8-f7e7-4e56-b8af-80918c8772ca
+
+		annotation ONT_ItemKind = Dataset
+
+		annotation ONT_ItemName = sm_gfip
+
+		annotation ONT_WorkspaceName = Gopu Exploration
+
+		annotation ONT_PinnedAtUtc = 2026-11-01T10:57:49.7634474+00:00
+

@@ -1,0 +1,95 @@
+table dim_date
+	lineageTag: 5a2d61e4-0e6b-44a3-96c1-c8eaa890b274
+	sourceLineageTag: [gold].[dim_date]
+	dataCategory: Time
+
+	column date
+		dataType: dateTime
+		isKey
+		formatString: General Date
+		lineageTag: d00838e3-7672-4ac7-ad28-d63f2296cda6
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 41399614-f049-4159-88c1-e01ae996ed5e
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 893003e4-dc9e-422b-b1e0-9a2957dc2bf6
+		sourceLineageTag: year
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 266dc1b3-82e4-4110-b610-7475caf9a862
+		sourceLineageTag: quarter
+		summarizeBy: sum
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: ecc76684-7b66-4edd-997b-988dec5626e5
+		sourceLineageTag: month
+		summarizeBy: sum
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		lineageTag: 66c662c2-6965-4dac-bb38-df3f1b941e57
+		sourceLineageTag: month_name
+		summarizeBy: none
+		sourceColumn: month_name
+		sortByColumn: month
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column dow
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f2f4466-f20d-4c90-a997-9a489722dfaf
+		sourceLineageTag: dow
+		summarizeBy: sum
+		sourceColumn: dow
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_trading_day
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e476dafc-093b-4f5b-93b6-a4a028d1e31e
+		sourceLineageTag: is_trading_day
+		summarizeBy: none
+		sourceColumn: is_trading_day
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = entity
+		mode: directLake
+		source
+			entityName: dim_date
+			schemaName: gold
+			expressionSource: 'DirectLake - LH_API_INGESTION'
+

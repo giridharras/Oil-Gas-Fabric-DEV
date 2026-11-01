@@ -1,0 +1,99 @@
+table fact_rating_event
+	lineageTag: a6611848-7ef8-41fc-b567-4fa46401652d
+	sourceLineageTag: [gold].[fact_rating_event]
+
+	column event_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 0eb5e9d2-6aea-4eae-9908-60ccb88cfbad
+		sourceLineageTag: event_id
+		summarizeBy: sum
+		sourceColumn: event_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column issuer_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f13fc3a-15f5-4219-b70c-128d9a787f45
+		sourceLineageTag: issuer_key
+		summarizeBy: none
+		sourceColumn: issuer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: acbfb42a-7652-4741-8938-5a5c9d30b08c
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column action_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 386fda06-65c1-420c-8b6d-496eb256c1df
+		sourceLineageTag: action_year
+		summarizeBy: sum
+		sourceColumn: action_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column old_rating_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f65b9d3-37bd-4472-a255-2190a3cf2ea0
+		sourceLineageTag: old_rating_key
+		summarizeBy: none
+		sourceColumn: old_rating_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column notch
+		dataType: int64
+		formatString: 0
+		lineageTag: 618d25fb-da95-41ab-bbce-0ec80269763c
+		sourceLineageTag: notch
+		summarizeBy: sum
+		sourceColumn: notch
+
+		annotation SummarizationSetBy = Automatic
+
+	column new_rating_key
+		dataType: int64
+		formatString: 0
+		lineageTag: da99ed4b-fc6b-44a0-bf7f-b674a69b2a5c
+		sourceLineageTag: new_rating_key
+		summarizeBy: sum
+		sourceColumn: new_rating_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column action_type
+		dataType: string
+		lineageTag: b723d52c-ea01-4c6e-94d6-807ae3c50467
+		sourceLineageTag: action_type
+		summarizeBy: none
+		sourceColumn: action_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column outlook
+		dataType: string
+		lineageTag: ea365980-162c-4cb8-8183-9cf93edd4272
+		sourceLineageTag: outlook
+		summarizeBy: none
+		sourceColumn: outlook
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_rating_event = entity
+		mode: directLake
+		source
+			entityName: fact_rating_event
+			schemaName: gold
+			expressionSource: 'DirectLake - LH_API_INGESTION'
+

@@ -1,0 +1,52 @@
+table fact_commodity_assessment
+	lineageTag: d86a24c6-a493-4935-88c9-da322fcbbc86
+	sourceLineageTag: [gold].[fact_commodity_assessment]
+
+	column commodity_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ef03050-fe41-45af-915b-e9f974b51a9f
+		sourceLineageTag: commodity_key
+		summarizeBy: none
+		sourceColumn: commodity_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e926fee-1754-426c-8076-279ec49badc1
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column assess_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 0df9a786-88c9-499a-abbb-438d3cf88a5d
+		sourceLineageTag: assess_year
+		summarizeBy: sum
+		sourceColumn: assess_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column price
+		dataType: double
+		lineageTag: 804db3c4-9d4d-4961-a05f-62ca526d7914
+		sourceLineageTag: price
+		summarizeBy: sum
+		sourceColumn: price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_commodity_assessment = entity
+		mode: directLake
+		source
+			entityName: fact_commodity_assessment
+			schemaName: gold
+			expressionSource: 'DirectLake - LH_API_INGESTION'
+

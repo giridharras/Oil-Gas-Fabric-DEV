@@ -1,0 +1,155 @@
+table dim_commodity
+	lineageTag: 5bde3258-e908-4a3b-99a9-1bd67776122e
+	sourceLineageTag: a8999d50-ede9-4ea0-9d03-2b7e866bc699
+
+	measure 'Avg Close' = EXTERNALMEASURE("Avg Close", DOUBLE, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		lineageTag: b0f35e5a-2a95-492f-8fd6-c0a913867563
+		sourceLineageTag: 69d253f4-5496-4417-8796-bf8cb779ee6d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Volume' = EXTERNALMEASURE("Total Volume", INTEGER, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		formatString: 0
+		lineageTag: 4ce3cb83-a483-42e6-89fe-754e053f7e1b
+		sourceLineageTag: da947227-ddf5-4278-b31a-d191a6bd9a02
+
+	measure 'Market Cap ($M)' = EXTERNALMEASURE("Market Cap ($M)", DOUBLE, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		lineageTag: ae5ccf3d-58a1-458e-a9b7-5ec6a36c3ccd
+		sourceLineageTag: 11b428b1-93de-4f21-9f37-2534bcd9ac5c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Daily Return %' = EXTERNALMEASURE("Daily Return %", DOUBLE, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		lineageTag: 971b47ae-61ca-419c-9137-9b1302b0b142
+		sourceLineageTag: 48158a36-74ba-4512-b334-2929450e51f8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'YTD Return %' = EXTERNALMEASURE("YTD Return %", DOUBLE, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		lineageTag: 40756e05-1a68-4bcd-a9ca-4757063add60
+		sourceLineageTag: a057e2d6-95f1-4fa4-adb5-fa4fb3c2a628
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Rating Actions' = EXTERNALMEASURE("Rating Actions", INTEGER, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		formatString: 0
+		lineageTag: d12e4d9d-6f33-4aa8-8b22-5f8e412673e5
+		sourceLineageTag: 1699f2bc-414b-4038-9627-a3029e2a811f
+
+	measure Upgrades = EXTERNALMEASURE("Upgrades", INTEGER, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		formatString: 0
+		lineageTag: a685f401-2653-4e21-ae88-1332e01d8bbf
+		sourceLineageTag: e3458a19-a7b4-4cd8-b208-a26c087080af
+
+	measure Downgrades = EXTERNALMEASURE("Downgrades", INTEGER, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		formatString: 0
+		lineageTag: 8696974a-1e42-4f12-aefb-5626c03b0150
+		sourceLineageTag: 17ada6ef-a69b-4b9f-bede-b5c53cad2ae0
+
+	measure 'Upgrade/Downgrade Ratio' = EXTERNALMEASURE("Upgrade/Downgrade Ratio", DOUBLE, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		lineageTag: 10c8f563-1dd6-432c-a073-d7b081edc4b4
+		sourceLineageTag: 47c8a8ee-8cb0-4488-99d8-a5382a4e6009
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Default Count' = EXTERNALMEASURE("Default Count", INTEGER, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		formatString: 0
+		lineageTag: c8d36755-6323-447b-919f-724eb4c91df6
+		sourceLineageTag: f49a3252-368a-4fad-9a4b-eda3bf4bddc3
+
+	measure 'Revenue ($M)' = EXTERNALMEASURE("Revenue ($M)", DOUBLE, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		lineageTag: 7035c7cb-feb4-4459-b420-5ed74f1bcd18
+		sourceLineageTag: 04f369c8-45ac-4d48-899a-0fd68e9c9399
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'EBITDA ($M)' = EXTERNALMEASURE("EBITDA ($M)", DOUBLE, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		lineageTag: 75b0fd58-6a48-43a7-a131-4119620a125f
+		sourceLineageTag: c791bb21-e387-48e1-b7bf-80c237ea24a6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'EBITDA Margin' = EXTERNALMEASURE("EBITDA Margin", DOUBLE, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		lineageTag: 055c7363-1991-4afc-86d2-fc1ba062a957
+		sourceLineageTag: 8a773a09-2dc3-413b-94ec-05d1bda329c7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Net Leverage' = EXTERNALMEASURE("Net Leverage", DOUBLE, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		lineageTag: 4352f64b-5a8b-4a4d-acff-a05f8f6a0d4e
+		sourceLineageTag: 49290ef2-db37-4725-bd74-e60f1e544fe2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue YoY %' = EXTERNALMEASURE("Revenue YoY %", DOUBLE, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		lineageTag: a30490fa-7562-4c37-abb6-ccb12d370751
+		sourceLineageTag: e4394adb-75f2-465c-bb6a-93667ce18d96
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Assessment' = EXTERNALMEASURE("Avg Assessment", DOUBLE, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		lineageTag: 03ef162a-4bd9-4111-8e9f-a0fa98d007f3
+		sourceLineageTag: 3f860b11-2f49-4aea-b8cd-d7f10273881e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Index Level' = EXTERNALMEASURE("Index Level", DOUBLE, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		lineageTag: 689646b0-75c4-495b-bab1-76f14ea79c57
+		sourceLineageTag: db03e797-4638-4bfe-9790-f8f5555c9907
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Index Return %' = EXTERNALMEASURE("Index Return %", DOUBLE, "DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca")
+		lineageTag: 0d9c1eba-2c91-4d62-8cac-b20d6a2c18b4
+		sourceLineageTag: d61cac0f-95e9-4997-a119-0d8983db7ba4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column commodity_key
+		dataType: int64
+		lineageTag: b34ce07e-7a44-490c-bab1-3a998b71ed83
+		sourceLineageTag: c597a29d-13ec-452f-8cd8-87b6145613c2
+		sourceColumn: commodity_key
+
+	column symbol
+		dataType: string
+		lineageTag: d33d5f7d-2840-4379-83f7-5187aecec5f4
+		sourceLineageTag: 4c413901-397a-4a08-8bd4-cf77ad0af032
+		sourceColumn: symbol
+
+	column commodity
+		dataType: string
+		lineageTag: b1ed25cb-86a3-4402-995b-d026b91357ed
+		sourceLineageTag: 0531cd65-fc72-4605-8d26-a07aa83d062f
+		sourceColumn: commodity
+
+	column unit
+		dataType: string
+		lineageTag: ebbeaffa-25ba-4d41-b88e-70a2f397bdec
+		sourceLineageTag: 6e265f85-60f3-4db5-ad46-a548d3531a95
+		sourceColumn: unit
+
+	column base
+		dataType: double
+		lineageTag: c42b6b34-c7d2-4218-873e-3e1d878db2ec
+		sourceLineageTag: b0ef7406-371e-4fa4-9526-e36e2b2fc9fb
+		sourceColumn: base
+
+	partition dim_commodity-partition = entity
+		mode: directQuery
+		source
+			entityName: dim_commodity
+			expressionSource: 'DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca'
+
+		annotation ONT_WorkspaceId = ea224e1d-5a3b-4811-b9c3-7d78c27f52c9
+
+		annotation ONT_ItemId = e00768f8-f7e7-4e56-b8af-80918c8772ca
+
+		annotation ONT_ItemKind = Dataset
+
+		annotation ONT_ItemName = sm_gfip
+
+		annotation ONT_WorkspaceName = Gopu Exploration
+
+		annotation ONT_PinnedAtUtc = 2026-11-01T10:57:49.7634474+00:00
+

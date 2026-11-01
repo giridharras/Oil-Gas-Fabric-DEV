@@ -1,0 +1,76 @@
+table fact_price_daily
+	lineageTag: 3162fff7-d126-4452-87cd-6831e2c14847
+	sourceLineageTag: cd8649b1-f9ef-4e83-9fcf-d4725fc21fef
+
+	column security_key
+		dataType: int64
+		lineageTag: 1172fc76-c024-4ddd-b798-a0379c5a926b
+		sourceLineageTag: e05d93aa-32e1-4f69-ad71-db31bd508202
+		sourceColumn: security_key
+
+	column date_key
+		dataType: int64
+		lineageTag: c2379b18-b52d-45a1-aa1b-2052de450485
+		sourceLineageTag: 90fa5dd4-4799-4384-941d-04b712cd2100
+		sourceColumn: date_key
+
+	column trade_year
+		dataType: int64
+		lineageTag: 6de1bb1b-920c-42b3-8d80-7345ee6cd255
+		sourceLineageTag: 54d7d5a9-1d93-40dc-9d29-a4453e20a712
+		sourceColumn: trade_year
+
+	column open
+		dataType: double
+		lineageTag: d16ba779-9286-4f28-98f9-d56ff9d9a495
+		sourceLineageTag: 4a07ea00-c930-4f65-ac90-743f4665abca
+		sourceColumn: open
+
+	column high
+		dataType: double
+		lineageTag: c34fe6e2-a74b-40e4-8410-d279fe50e9a6
+		sourceLineageTag: 081aa30f-4032-44f8-aba2-664928356916
+		sourceColumn: high
+
+	column low
+		dataType: double
+		lineageTag: 2cae2c77-1e20-4236-8ed1-cede939e69bc
+		sourceLineageTag: cb9f6c4e-90b4-4602-9589-7f291051810b
+		sourceColumn: low
+
+	column close
+		dataType: double
+		lineageTag: ebed225b-ab6b-4440-9ed4-fefa0c6f8718
+		sourceLineageTag: fd3a7de6-53b0-42a8-8dfc-08c9f16ce444
+		sourceColumn: close
+
+	column volume
+		dataType: int64
+		lineageTag: 4fed5e97-6cbc-4067-803f-668aeef23b23
+		sourceLineageTag: c31773e8-01fc-424c-92fd-d2de473d4245
+		sourceColumn: volume
+
+	column market_cap_m
+		dataType: double
+		lineageTag: f807bf26-e10e-4b94-ae24-8be417605c79
+		sourceLineageTag: 64017ca1-c379-435b-a060-97628933a573
+		sourceColumn: market_cap_m
+
+	partition fact_price_daily-partition = entity
+		mode: directQuery
+		source
+			entityName: fact_price_daily
+			expressionSource: 'DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca'
+
+		annotation ONT_WorkspaceId = ea224e1d-5a3b-4811-b9c3-7d78c27f52c9
+
+		annotation ONT_ItemId = e00768f8-f7e7-4e56-b8af-80918c8772ca
+
+		annotation ONT_ItemKind = Dataset
+
+		annotation ONT_ItemName = sm_gfip
+
+		annotation ONT_WorkspaceName = Gopu Exploration
+
+		annotation ONT_PinnedAtUtc = 2026-11-01T10:57:49.7634474+00:00
+

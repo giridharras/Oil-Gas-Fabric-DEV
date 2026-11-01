@@ -1,0 +1,64 @@
+table dim_security
+	lineageTag: e86e8c2f-dfaa-4875-99a9-84764c38de82
+	sourceLineageTag: cd84b304-0be2-4ac1-9ba2-d449455a9c7e
+
+	column security_key
+		dataType: int64
+		lineageTag: 3e727182-9962-47e0-957d-ccdd011cb0be
+		sourceLineageTag: 176812c9-cd42-4d5f-85dc-69c70f8cdf0f
+		sourceColumn: security_key
+
+	column ticker
+		dataType: string
+		lineageTag: b3ff16fe-2aac-43f6-897b-bbd8639c88b8
+		sourceLineageTag: a2bbe984-9193-44d8-a668-2bf29eefb0a4
+		sourceColumn: ticker
+
+	column issuer_key
+		dataType: int64
+		lineageTag: c8616fa4-7da5-4dfe-9612-fd5996910e5f
+		sourceLineageTag: 8da433a0-d0aa-491c-971c-6c4bb5298a29
+		sourceColumn: issuer_key
+
+	column asset_class
+		dataType: string
+		lineageTag: c334eb3a-28ff-4360-80c9-5190f512917b
+		sourceLineageTag: 4abb8938-2087-4bcd-ada3-10d046be6620
+		sourceColumn: asset_class
+
+	column currency
+		dataType: string
+		lineageTag: 20526bb8-84ac-46f9-a14d-c8f045720281
+		sourceLineageTag: 8a09b241-7fd3-44da-9697-6a1224484e8e
+		sourceColumn: currency
+
+	column base_price
+		dataType: double
+		lineageTag: 654ce4a0-6fb9-4b8d-b2e0-97504b092efa
+		sourceLineageTag: e384526b-ec49-4033-867c-44e3779f8c64
+		sourceColumn: base_price
+
+	column shares_out_m
+		dataType: double
+		lineageTag: b8990940-2c1b-42e1-85c5-9afa9e5289ec
+		sourceLineageTag: ef78458a-e563-4024-9f5a-018129ae656e
+		sourceColumn: shares_out_m
+
+	partition dim_security-partition = entity
+		mode: directQuery
+		source
+			entityName: dim_security
+			expressionSource: 'DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca'
+
+		annotation ONT_WorkspaceId = ea224e1d-5a3b-4811-b9c3-7d78c27f52c9
+
+		annotation ONT_ItemId = e00768f8-f7e7-4e56-b8af-80918c8772ca
+
+		annotation ONT_ItemKind = Dataset
+
+		annotation ONT_ItemName = sm_gfip
+
+		annotation ONT_WorkspaceName = Gopu Exploration
+
+		annotation ONT_PinnedAtUtc = 2026-11-01T10:57:49.7634474+00:00
+
