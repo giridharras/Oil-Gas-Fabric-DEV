@@ -67,5 +67,179 @@
       }
     },
     "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "f23f0b2b-f03b-4a62-87c3-521e0faed217",
+    "payload": {
+      "name": "sm_gfip",
+      "type": "pbiMetrics"
+    },
+    "type": "container-v1"
+  },
+  {
+    "uniqueIdentifier": "02087658-92a9-4a2d-8270-cfd3085c5f52",
+    "payload": {
+      "name": "PowerBI Metric",
+      "runSettings": {
+        "isStopped": false,
+        "executionIntervalInSeconds": 3600
+      },
+      "query": {
+        "queryString": "{\r\n  \"provider\": {},\r\n  \"metrics\": [\r\n    {\r\n      \"measure\": \"Sum of price\"\r\n    }\r\n  ],\r\n  \"groupBy\": [\r\n    {\r\n      \"column\": \"year\"\r\n    }\r\n  ]\r\n}",
+        "compositeKey": {
+          "name": "year",
+          "keys": [
+            "year"
+          ]
+        }
+      },
+      "metricDefinition": "{\"name\":\"Sum of price\",\"definition\":{\"datasetId\":\"8c8772ca-8091-b8af-4e56-f7e7e00768f8\",\"aggregation\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"fact_commodity_assessment\"}},\"Property\":\"price\"}},\"Function\":0},\"Name\":\"Sum of price\"},\"dimensions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dim_date\"}},\"Property\":\"year\"},\"Name\":\"year\"}]},\"type\":\"DatasetMetric\"}",
+      "metadata": {
+        "datasetId": "8c8772ca-8091-b8af-4e56-f7e7e00768f8",
+        "reportWorkspaceId": "ea224e1d-5a3b-4811-b9c3-7d78c27f52c9",
+        "reportId": "8d239ade-a745-467d-be7c-18afd5cd1190",
+        "visualId": "980a69831b3d545cd9c1",
+        "pageId": "c96d6b0778ba193178ce",
+        "measureName": "Sum of price",
+        "datasetWorkspaceId": "00000000-0000-0000-0000-000000000000"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "f23f0b2b-f03b-4a62-87c3-521e0faed217"
+      }
+    },
+    "type": "powerBiSource-v1"
+  },
+  {
+    "uniqueIdentifier": "c8fc085b-9494-4088-bc94-4dfe8d5328a8",
+    "payload": {
+      "name": "sm_gfip",
+      "parentContainer": {
+        "targetUniqueIdentifier": "f23f0b2b-f03b-4a62-87c3-521e0faed217"
+      },
+      "definition": {
+        "type": "Event",
+        "instance": "{\"templateId\":\"SourceEvent\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"SourceEventStep\",\"id\":\"25b28713-65d6-4d9d-ad18-847815945622\",\"rows\":[{\"name\":\"SourceSelector\",\"kind\":\"SourceReference\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"02087658-92a9-4a2d-8270-cfd3085c5f52\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "21010ab8-f0bf-43e5-b1f1-fe0d1adf71d6",
+    "payload": {
+      "name": "year",
+      "parentObject": {
+        "targetUniqueIdentifier": "49d9627b-95fc-4c24-b4f4-450a1cd5d462"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "f23f0b2b-f03b-4a62-87c3-521e0faed217"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"templateId\":\"BasicEventAttribute\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"EventSelectStep\",\"id\":\"4d9590eb-599c-4308-b8ba-83568e00a584\",\"rows\":[{\"name\":\"EventSelector\",\"kind\":\"Event\",\"arguments\":[{\"kind\":\"EventReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"c3d3bc2e-0f15-4328-abcb-fde7d154423a\"}],\"name\":\"event\"}]},{\"name\":\"EventFieldSelector\",\"kind\":\"EventField\",\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"year\"}]}]},{\"name\":\"EventComputeStep\",\"id\":\"1244e290-9309-447d-b8ed-94aa66fa0384\",\"rows\":[{\"name\":\"TypeAssertion\",\"kind\":\"TypeAssertion\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Text\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "49d9627b-95fc-4c24-b4f4-450a1cd5d462",
+    "payload": {
+      "name": "year",
+      "parentContainer": {
+        "targetUniqueIdentifier": "f23f0b2b-f03b-4a62-87c3-521e0faed217"
+      },
+      "definition": {
+        "type": "Object"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "18463bcc-3d28-48e7-bd20-a224d3cae787",
+    "payload": {
+      "name": "year",
+      "parentObject": {
+        "targetUniqueIdentifier": "49d9627b-95fc-4c24-b4f4-450a1cd5d462"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "f23f0b2b-f03b-4a62-87c3-521e0faed217"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"templateId\":\"IdentityPartAttribute\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"IdPartStep\",\"id\":\"1ffbafbd-0cdc-4ad0-b7af-a936a61696da\",\"rows\":[{\"name\":\"TypeAssertion\",\"kind\":\"TypeAssertion\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Text\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "5ebb2441-654d-4c21-b84b-0fa90bd69f31",
+    "payload": {
+      "name": "year tuple",
+      "parentObject": {
+        "targetUniqueIdentifier": "49d9627b-95fc-4c24-b4f4-450a1cd5d462"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "f23f0b2b-f03b-4a62-87c3-521e0faed217"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"templateId\":\"IdentityTupleAttribute\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"IdStructureStep\",\"id\":\"7d1d83c2-de07-43e5-900c-d99ae4f1ed86\",\"rows\":[{\"name\":\"IdPart\",\"kind\":\"IdPart\",\"arguments\":[{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"18463bcc-3d28-48e7-bd20-a224d3cae787\"}],\"name\":\"idPart\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "c3d3bc2e-0f15-4328-abcb-fde7d154423a",
+    "payload": {
+      "name": "PowerBI Metric",
+      "parentObject": {
+        "targetUniqueIdentifier": "49d9627b-95fc-4c24-b4f4-450a1cd5d462"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "f23f0b2b-f03b-4a62-87c3-521e0faed217"
+      },
+      "definition": {
+        "type": "Event",
+        "instance": "{\"templateId\":\"SplitEvent\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"SplitEventStep\",\"id\":\"9395760b-a0fe-49fc-bc2b-c147d21b3b9d\",\"rows\":[{\"name\":\"EventSelector\",\"kind\":\"Event\",\"arguments\":[{\"kind\":\"EventReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"c8fc085b-9494-4088-bc94-4dfe8d5328a8\"}],\"name\":\"event\"}]},{\"name\":\"FieldIdMapping\",\"kind\":\"FieldIdMapping\",\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"year\"},{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"18463bcc-3d28-48e7-bd20-a224d3cae787\"}],\"name\":\"idPart\"}]},{\"name\":\"SplitEventOptions\",\"kind\":\"EventOptions\",\"arguments\":[{\"name\":\"isAuthoritative\",\"type\":\"boolean\",\"value\":true}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "e5da19d2-28b7-4c7b-a247-d9970a98ce16",
+    "payload": {
+      "name": "Sum of price",
+      "parentObject": {
+        "targetUniqueIdentifier": "49d9627b-95fc-4c24-b4f4-450a1cd5d462"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "f23f0b2b-f03b-4a62-87c3-521e0faed217"
+      },
+      "definition": {
+        "type": "Attribute",
+        "instance": "{\"templateId\":\"BasicEventAttribute\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"EventSelectStep\",\"id\":\"80459704-ade5-4adf-981d-f9771e83a41d\",\"rows\":[{\"name\":\"EventSelector\",\"kind\":\"Event\",\"arguments\":[{\"kind\":\"EventReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"c3d3bc2e-0f15-4328-abcb-fde7d154423a\"}],\"name\":\"event\"}]},{\"name\":\"EventFieldSelector\",\"kind\":\"EventField\",\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"Sum of price\"}]}]},{\"name\":\"EventComputeStep\",\"id\":\"0b070570-1ee9-4994-b2c9-8f47c034bdfc\",\"rows\":[{\"name\":\"TypeAssertion\",\"kind\":\"TypeAssertion\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Text\"},{\"name\":\"format\",\"type\":\"string\",\"value\":\"\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "464776f5-bbd0-4a3b-a393-e75216310b50",
+    "payload": {
+      "name": "Sum of price Alert",
+      "parentObject": {
+        "targetUniqueIdentifier": "49d9627b-95fc-4c24-b4f4-450a1cd5d462"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "f23f0b2b-f03b-4a62-87c3-521e0faed217"
+      },
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"templateId\":\"AttributeTrigger\",\"templateVersion\":\"1.2.3\",\"steps\":[{\"name\":\"ScalarSelectStep\",\"id\":\"6688b8ef-9521-4f5b-9b6c-27c0c8fc1297\",\"rows\":[{\"name\":\"AttributeSelector\",\"kind\":\"Attribute\",\"arguments\":[{\"kind\":\"AttributeReference\",\"type\":\"complex\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"e5da19d2-28b7-4c7b-a247-d9970a98ce16\"}],\"name\":\"attribute\"}]}]},{\"name\":\"ScalarDetectStep\",\"id\":\"52f94a9b-621e-4fd0-99fb-3039606f55f7\",\"rows\":[{\"name\":\"AnyValueChange\",\"kind\":\"AnyValueChange\",\"arguments\":[{\"name\":\"op\",\"type\":\"string\",\"value\":\"Changes\"}]},{\"name\":\"OccurrenceOption\",\"kind\":\"EachTime\",\"arguments\":[]}]},{\"name\":\"ActStep\",\"id\":\"7b89c2f1-62e0-495d-a943-6402e778053c\",\"rows\":[{\"name\":\"TeamsBinding\",\"kind\":\"TeamsMessage\",\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"\"},{\"name\":\"recipients\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"giridhar@rightanglesol.com\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Sum of price Alert\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"The trigger condition has been met for your Power BI report\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[{\"kind\":\"NameReferencePair\",\"type\":\"complex\",\"arguments\":[{\"name\":\"name\",\"type\":\"string\",\"value\":\"Sum of price\"},{\"kind\":\"AttributeReference\",\"type\":\"complexReference\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"e5da19d2-28b7-4c7b-a247-d9970a98ce16\"}],\"name\":\"reference\"}]},{\"kind\":\"NameReferencePair\",\"type\":\"complex\",\"arguments\":[{\"name\":\"name\",\"type\":\"string\",\"value\":\"year\"},{\"kind\":\"AttributeReference\",\"type\":\"complexReference\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"21010ab8-f0bf-43e5-b1f1-fe0d1adf71d6\"}],\"name\":\"reference\"}]}]}]}]}]}",
+        "settings": {
+          "shouldRun": true,
+          "shouldApplyRuleOnUpdate": false
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
   }
 ]
