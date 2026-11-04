@@ -1,0 +1,40 @@
+table dim_rating_scale
+	lineageTag: 6bfe6659-7ae8-49f4-a837-ed1196995f00
+	sourceLineageTag: 0c4cd1f5-eb05-4474-8df7-9d5044be2025
+
+	column rating_key
+		dataType: int64
+		lineageTag: 58e2b773-97c4-494a-8dd5-3b030bfc9228
+		sourceLineageTag: 4f85c51b-fe5c-4cfe-b7d5-dbc4194eb6ab
+		sourceColumn: rating_key
+
+	column rating
+		dataType: string
+		lineageTag: 5ec665eb-9335-4678-905c-974a02ca5f07
+		sourceLineageTag: ede14fc9-2933-4417-867e-a3ede9897919
+		sourceColumn: rating
+
+	column grade_class
+		dataType: string
+		lineageTag: 7d8d0430-dc0d-4aef-b6f6-e59e4a395182
+		sourceLineageTag: 4224d066-7ce2-405b-933b-1bc8c69342f7
+		sourceColumn: grade_class
+
+	partition dim_rating_scale-partition = entity
+		mode: directQuery
+		source
+			entityName: dim_rating_scale
+			expressionSource: 'DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca'
+
+		annotation ONT_WorkspaceId = ea224e1d-5a3b-4811-b9c3-7d78c27f52c9
+
+		annotation ONT_ItemId = e00768f8-f7e7-4e56-b8af-80918c8772ca
+
+		annotation ONT_ItemKind = Dataset
+
+		annotation ONT_ItemName = sm_gfip
+
+		annotation ONT_WorkspaceName = Gopu Exploration
+
+		annotation ONT_PinnedAtUtc = 2026-11-01T10:57:49.7634474+00:00
+

@@ -1,0 +1,46 @@
+table fact_commodity_assessment
+	lineageTag: a33f26af-eac9-41f3-af57-30d45b91e24c
+	sourceLineageTag: d86a24c6-a493-4935-88c9-da322fcbbc86
+
+	column commodity_key
+		dataType: int64
+		lineageTag: 68ac0fdc-12b7-46e3-a690-ca69e67e8701
+		sourceLineageTag: 4ef03050-fe41-45af-915b-e9f974b51a9f
+		sourceColumn: commodity_key
+
+	column date_key
+		dataType: int64
+		lineageTag: e4050ad6-a985-4c44-a4be-d34e123c2588
+		sourceLineageTag: 3e926fee-1754-426c-8076-279ec49badc1
+		sourceColumn: date_key
+
+	column assess_year
+		dataType: int64
+		lineageTag: 4be3048f-483a-4438-83ce-5fc89f097b1d
+		sourceLineageTag: 0df9a786-88c9-499a-abbb-438d3cf88a5d
+		sourceColumn: assess_year
+
+	column price
+		dataType: double
+		lineageTag: 837f87c7-6e35-4a42-bef2-dfa609e6d62c
+		sourceLineageTag: 804db3c4-9d4d-4961-a05f-62ca526d7914
+		sourceColumn: price
+
+	partition fact_commodity_assessment-partition = entity
+		mode: directQuery
+		source
+			entityName: fact_commodity_assessment
+			expressionSource: 'DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca'
+
+		annotation ONT_WorkspaceId = ea224e1d-5a3b-4811-b9c3-7d78c27f52c9
+
+		annotation ONT_ItemId = e00768f8-f7e7-4e56-b8af-80918c8772ca
+
+		annotation ONT_ItemKind = Dataset
+
+		annotation ONT_ItemName = sm_gfip
+
+		annotation ONT_WorkspaceName = Gopu Exploration
+
+		annotation ONT_PinnedAtUtc = 2026-11-01T10:57:49.7634474+00:00
+

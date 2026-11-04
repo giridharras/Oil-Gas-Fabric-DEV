@@ -1,0 +1,34 @@
+table dim_metric
+	lineageTag: 781ed080-cbc3-4073-b380-5e19913ea51c
+	sourceLineageTag: 03c505da-3f32-4cd1-b2c1-0bea3ab1b95a
+
+	column metric_key
+		dataType: int64
+		lineageTag: 3535f9ec-b393-4cb9-9130-1041f503b79c
+		sourceLineageTag: 86c63c5f-745b-4366-a33e-74062fff8294
+		sourceColumn: metric_key
+
+	column metric
+		dataType: string
+		lineageTag: 6a177532-1d7a-4e70-b64e-0d6a694aaddb
+		sourceLineageTag: ecff4c22-4fce-4325-9e11-5c9faaa6be26
+		sourceColumn: metric
+
+	partition dim_metric-partition = entity
+		mode: directQuery
+		source
+			entityName: dim_metric
+			expressionSource: 'DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca'
+
+		annotation ONT_WorkspaceId = ea224e1d-5a3b-4811-b9c3-7d78c27f52c9
+
+		annotation ONT_ItemId = e00768f8-f7e7-4e56-b8af-80918c8772ca
+
+		annotation ONT_ItemKind = Dataset
+
+		annotation ONT_ItemName = sm_gfip
+
+		annotation ONT_WorkspaceName = Gopu Exploration
+
+		annotation ONT_PinnedAtUtc = 2026-11-01T10:57:49.7634474+00:00
+

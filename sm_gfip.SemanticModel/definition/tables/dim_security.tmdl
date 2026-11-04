@@ -1,0 +1,80 @@
+table dim_security
+	lineageTag: cd84b304-0be2-4ac1-9ba2-d449455a9c7e
+	sourceLineageTag: [gold].[dim_security]
+
+	column security_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 176812c9-cd42-4d5f-85dc-69c70f8cdf0f
+		sourceLineageTag: security_key
+		summarizeBy: none
+		sourceColumn: security_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column ticker
+		dataType: string
+		lineageTag: a2bbe984-9193-44d8-a668-2bf29eefb0a4
+		sourceLineageTag: ticker
+		summarizeBy: none
+		sourceColumn: ticker
+
+		annotation SummarizationSetBy = Automatic
+
+	column issuer_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 8da433a0-d0aa-491c-971c-6c4bb5298a29
+		sourceLineageTag: issuer_key
+		summarizeBy: none
+		sourceColumn: issuer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column asset_class
+		dataType: string
+		lineageTag: 4abb8938-2087-4bcd-ada3-10d046be6620
+		sourceLineageTag: asset_class
+		summarizeBy: none
+		sourceColumn: asset_class
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency
+		dataType: string
+		lineageTag: 8a09b241-7fd3-44da-9697-6a1224484e8e
+		sourceLineageTag: currency
+		summarizeBy: none
+		sourceColumn: currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column base_price
+		dataType: double
+		lineageTag: e384526b-ec49-4033-867c-44e3779f8c64
+		sourceLineageTag: base_price
+		summarizeBy: sum
+		sourceColumn: base_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column shares_out_m
+		dataType: double
+		lineageTag: ef78458a-e563-4024-9f5a-018129ae656e
+		sourceLineageTag: shares_out_m
+		summarizeBy: sum
+		sourceColumn: shares_out_m
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dim_security = entity
+		mode: directLake
+		source
+			entityName: dim_security
+			schemaName: gold
+			expressionSource: 'DirectLake - LH_API_INGESTION'
+

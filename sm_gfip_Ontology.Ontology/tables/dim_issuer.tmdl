@@ -1,0 +1,58 @@
+table dim_issuer
+	lineageTag: 902352b8-7c46-468f-91c0-98ee24075d5e
+	sourceLineageTag: 292b087c-888e-4bce-b3e7-32044957408c
+
+	column issuer_key
+		dataType: int64
+		lineageTag: 625f4781-ad09-4d83-acde-445971070d74
+		sourceLineageTag: 8437c154-36f3-413a-9803-1504b22b0cc1
+		sourceColumn: issuer_key
+
+	column issuer_name
+		dataType: string
+		lineageTag: 8102d8c5-4578-44bd-81c9-8de5f23effe6
+		sourceLineageTag: 2a50d2e0-fa58-4031-a4bb-63d7d3754115
+		sourceColumn: issuer_name
+
+	column sector
+		dataType: string
+		lineageTag: 5823c7cc-a50b-4ed3-8daa-403f90c92184
+		sourceLineageTag: 80aa5ec2-c5bb-42ca-84a6-c51c37f14bcb
+		sourceColumn: sector
+
+	column geo_key
+		dataType: int64
+		lineageTag: 6e17c97f-9454-4fa3-9213-2d1d1d716085
+		sourceLineageTag: 649f51b4-6dd5-46d1-bcdf-6a1cf812e1bd
+		sourceColumn: geo_key
+
+	column issuer_type
+		dataType: string
+		lineageTag: 68a239bd-0fc7-4627-bf24-c3c3c7366458
+		sourceLineageTag: 4c8b4dff-3344-44f6-b7d5-9d3cc8ff7b17
+		sourceColumn: issuer_type
+
+	column is_listed
+		dataType: boolean
+		lineageTag: b705ce16-48ac-4d55-b10a-88a5d5ec0edd
+		sourceLineageTag: b99d1def-915b-4e1c-99bd-cbe722302cb0
+		sourceColumn: is_listed
+
+	partition dim_issuer-partition = entity
+		mode: directQuery
+		source
+			entityName: dim_issuer
+			expressionSource: 'DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca'
+
+		annotation ONT_WorkspaceId = ea224e1d-5a3b-4811-b9c3-7d78c27f52c9
+
+		annotation ONT_ItemId = e00768f8-f7e7-4e56-b8af-80918c8772ca
+
+		annotation ONT_ItemKind = Dataset
+
+		annotation ONT_ItemName = sm_gfip
+
+		annotation ONT_WorkspaceName = Gopu Exploration
+
+		annotation ONT_PinnedAtUtc = 2026-11-01T10:57:49.7634474+00:00
+

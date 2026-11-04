@@ -1,0 +1,49 @@
+relationship 1101bf93-5761-c50b-e105-eeed6c5e3615
+	fromColumn: fact_price_daily.date_key
+	toColumn: dim_date.date_key
+
+relationship e76560d7-d60d-4f02-53ff-3c9a5817d805
+	fromColumn: fact_price_daily.security_key
+	toColumn: dim_security.security_key
+
+relationship de525f53-070c-7777-6fdb-b39b74c954c2
+	fromColumn: dim_security.issuer_key
+	toColumn: dim_issuer.issuer_key
+
+relationship 76563b31-0d71-007c-c55a-6b7d03051ee6
+	fromColumn: dim_issuer.geo_key
+	toColumn: dim_geo.geo_key
+
+relationship d697702b-0df7-18fb-6cb7-1e330a3ccfe5
+	fromColumn: fact_rating_event.issuer_key
+	toColumn: dim_issuer.issuer_key
+
+relationship 0064299c-e1ae-3236-4281-b21e17ff3d85
+	fromColumn: fact_rating_event.date_key
+	toColumn: dim_date.date_key
+
+relationship 59ad825b-4721-999e-c79c-454eccf04c71
+	fromColumn: fact_rating_event.old_rating_key
+	toColumn: dim_rating_scale.rating_key
+
+relationship a4f85153-0bf4-1b1c-740f-c9976b385b1b
+	isActive: false
+	fromColumn: fact_rating_event.new_rating_key
+	toColumn: dim_rating_scale.rating_key
+
+relationship 712f80c2-a94e-9841-e1e1-bd22345194a2
+	fromColumn: fact_fundamentals.metric_key
+	toColumn: dim_metric.metric_key
+
+relationship 397094c5-c1fc-14fa-a461-c873f4f372d3
+	fromColumn: fact_commodity_assessment.date_key
+	toColumn: dim_date.date_key
+
+relationship 600aef7d-a205-dd67-99b7-8f0136c8ad29
+	fromColumn: fact_index_level.date_key
+	toColumn: dim_date.date_key
+
+relationship 56a9e414-f39a-88de-d399-e4394fc0379c
+	fromColumn: fact_commodity_assessment.commodity_key
+	toColumn: dim_commodity.commodity_key
+

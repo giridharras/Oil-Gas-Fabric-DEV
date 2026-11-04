@@ -1,0 +1,76 @@
+table fact_rating_event
+	lineageTag: f878be4a-7fa3-441e-9c6b-3ff5efff3776
+	sourceLineageTag: a6611848-7ef8-41fc-b567-4fa46401652d
+
+	column event_id
+		dataType: int64
+		lineageTag: 3164b09d-19d0-48be-9949-4bd14ab9e330
+		sourceLineageTag: 0eb5e9d2-6aea-4eae-9908-60ccb88cfbad
+		sourceColumn: event_id
+
+	column issuer_key
+		dataType: int64
+		lineageTag: 07163a21-2bdf-4f36-ae17-2bb46944ced4
+		sourceLineageTag: 2f13fc3a-15f5-4219-b70c-128d9a787f45
+		sourceColumn: issuer_key
+
+	column date_key
+		dataType: int64
+		lineageTag: fc9043f6-7616-4b4d-b8c3-92e6cadeae3c
+		sourceLineageTag: acbfb42a-7652-4741-8938-5a5c9d30b08c
+		sourceColumn: date_key
+
+	column action_year
+		dataType: int64
+		lineageTag: 6183d38b-7083-4ab6-950f-718ed60c1327
+		sourceLineageTag: 386fda06-65c1-420c-8b6d-496eb256c1df
+		sourceColumn: action_year
+
+	column old_rating_key
+		dataType: int64
+		lineageTag: dd274640-f7f6-49f0-ab8c-82e6c05371a1
+		sourceLineageTag: 9f65b9d3-37bd-4472-a255-2190a3cf2ea0
+		sourceColumn: old_rating_key
+
+	column notch
+		dataType: int64
+		lineageTag: 9ee57e39-6c89-4bf9-8665-999e686512f1
+		sourceLineageTag: 618d25fb-da95-41ab-bbce-0ec80269763c
+		sourceColumn: notch
+
+	column new_rating_key
+		dataType: int64
+		lineageTag: f1b0efa1-d6cc-4495-b4d4-cbaa3797c448
+		sourceLineageTag: da99ed4b-fc6b-44a0-bf7f-b674a69b2a5c
+		sourceColumn: new_rating_key
+
+	column action_type
+		dataType: string
+		lineageTag: fe191d7b-7972-44c5-9ec4-3ed5705cbab2
+		sourceLineageTag: b723d52c-ea01-4c6e-94d6-807ae3c50467
+		sourceColumn: action_type
+
+	column outlook
+		dataType: string
+		lineageTag: 15ccc744-3ea2-4862-a35f-1f40bd208194
+		sourceLineageTag: ea365980-162c-4cb8-8183-9cf93edd4272
+		sourceColumn: outlook
+
+	partition fact_rating_event-partition = entity
+		mode: directQuery
+		source
+			entityName: fact_rating_event
+			expressionSource: 'DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca'
+
+		annotation ONT_WorkspaceId = ea224e1d-5a3b-4811-b9c3-7d78c27f52c9
+
+		annotation ONT_ItemId = e00768f8-f7e7-4e56-b8af-80918c8772ca
+
+		annotation ONT_ItemKind = Dataset
+
+		annotation ONT_ItemName = sm_gfip
+
+		annotation ONT_WorkspaceName = Gopu Exploration
+
+		annotation ONT_PinnedAtUtc = 2026-11-01T10:57:49.7634474+00:00
+

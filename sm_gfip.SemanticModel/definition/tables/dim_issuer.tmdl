@@ -1,0 +1,68 @@
+table dim_issuer
+	lineageTag: 292b087c-888e-4bce-b3e7-32044957408c
+	sourceLineageTag: [gold].[dim_issuer]
+
+	column issuer_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 8437c154-36f3-413a-9803-1504b22b0cc1
+		sourceLineageTag: issuer_key
+		summarizeBy: none
+		sourceColumn: issuer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column issuer_name
+		dataType: string
+		lineageTag: 2a50d2e0-fa58-4031-a4bb-63d7d3754115
+		sourceLineageTag: issuer_name
+		summarizeBy: none
+		sourceColumn: issuer_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column sector
+		dataType: string
+		lineageTag: 80aa5ec2-c5bb-42ca-84a6-c51c37f14bcb
+		sourceLineageTag: sector
+		summarizeBy: none
+		sourceColumn: sector
+
+		annotation SummarizationSetBy = Automatic
+
+	column geo_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 649f51b4-6dd5-46d1-bcdf-6a1cf812e1bd
+		sourceLineageTag: geo_key
+		summarizeBy: none
+		sourceColumn: geo_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column issuer_type
+		dataType: string
+		lineageTag: 4c8b4dff-3344-44f6-b7d5-9d3cc8ff7b17
+		sourceLineageTag: issuer_type
+		summarizeBy: none
+		sourceColumn: issuer_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_listed
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b99d1def-915b-4e1c-99bd-cbe722302cb0
+		sourceLineageTag: is_listed
+		summarizeBy: none
+		sourceColumn: is_listed
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_issuer = entity
+		mode: directLake
+		source
+			entityName: dim_issuer
+			schemaName: gold
+			expressionSource: 'DirectLake - LH_API_INGESTION'
+

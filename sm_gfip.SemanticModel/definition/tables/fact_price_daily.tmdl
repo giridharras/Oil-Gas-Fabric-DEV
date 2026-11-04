@@ -1,0 +1,106 @@
+table fact_price_daily
+	lineageTag: cd8649b1-f9ef-4e83-9fcf-d4725fc21fef
+	sourceLineageTag: [gold].[fact_price_daily]
+
+	column security_key
+		dataType: int64
+		formatString: 0
+		lineageTag: e05d93aa-32e1-4f69-ad71-db31bd508202
+		sourceLineageTag: security_key
+		summarizeBy: none
+		sourceColumn: security_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 90fa5dd4-4799-4384-941d-04b712cd2100
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column trade_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 54d7d5a9-1d93-40dc-9d29-a4453e20a712
+		sourceLineageTag: trade_year
+		summarizeBy: sum
+		sourceColumn: trade_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column open
+		dataType: double
+		lineageTag: 4a07ea00-c930-4f65-ac90-743f4665abca
+		sourceLineageTag: open
+		summarizeBy: sum
+		sourceColumn: open
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column high
+		dataType: double
+		lineageTag: 081aa30f-4032-44f8-aba2-664928356916
+		sourceLineageTag: high
+		summarizeBy: sum
+		sourceColumn: high
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column low
+		dataType: double
+		lineageTag: cb9f6c4e-90b4-4602-9589-7f291051810b
+		sourceLineageTag: low
+		summarizeBy: sum
+		sourceColumn: low
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column close
+		dataType: double
+		lineageTag: fd3a7de6-53b0-42a8-8dfc-08c9f16ce444
+		sourceLineageTag: close
+		summarizeBy: sum
+		sourceColumn: close
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column volume
+		dataType: int64
+		formatString: 0
+		lineageTag: c31773e8-01fc-424c-92fd-d2de473d4245
+		sourceLineageTag: volume
+		summarizeBy: sum
+		sourceColumn: volume
+
+		annotation SummarizationSetBy = Automatic
+
+	column market_cap_m
+		dataType: double
+		lineageTag: 64017ca1-c379-435b-a060-97628933a573
+		sourceLineageTag: market_cap_m
+		summarizeBy: sum
+		sourceColumn: market_cap_m
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_price_daily = entity
+		mode: directLake
+		source
+			entityName: fact_price_daily
+			schemaName: gold
+			expressionSource: 'DirectLake - LH_API_INGESTION'
+

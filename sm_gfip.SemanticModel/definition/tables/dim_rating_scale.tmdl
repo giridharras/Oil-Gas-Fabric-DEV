@@ -1,0 +1,39 @@
+table dim_rating_scale
+	lineageTag: 0c4cd1f5-eb05-4474-8df7-9d5044be2025
+	sourceLineageTag: [gold].[dim_rating_scale]
+
+	column rating_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f85c51b-fe5c-4cfe-b7d5-dbc4194eb6ab
+		sourceLineageTag: rating_key
+		summarizeBy: none
+		sourceColumn: rating_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column rating
+		dataType: string
+		lineageTag: ede14fc9-2933-4417-867e-a3ede9897919
+		sourceLineageTag: rating
+		summarizeBy: none
+		sourceColumn: rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column grade_class
+		dataType: string
+		lineageTag: 4224d066-7ce2-405b-933b-1bc8c69342f7
+		sourceLineageTag: grade_class
+		summarizeBy: none
+		sourceColumn: grade_class
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_rating_scale = entity
+		mode: directLake
+		source
+			entityName: dim_rating_scale
+			schemaName: gold
+			expressionSource: 'DirectLake - LH_API_INGESTION'
+

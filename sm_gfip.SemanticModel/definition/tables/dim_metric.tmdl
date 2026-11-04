@@ -1,0 +1,30 @@
+table dim_metric
+	lineageTag: 03c505da-3f32-4cd1-b2c1-0bea3ab1b95a
+	sourceLineageTag: [gold].[dim_metric]
+
+	column metric_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 86c63c5f-745b-4366-a33e-74062fff8294
+		sourceLineageTag: metric_key
+		summarizeBy: none
+		sourceColumn: metric_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric
+		dataType: string
+		lineageTag: ecff4c22-4fce-4325-9e11-5c9faaa6be26
+		sourceLineageTag: metric
+		summarizeBy: none
+		sourceColumn: metric
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_metric = entity
+		mode: directLake
+		source
+			entityName: dim_metric
+			schemaName: gold
+			expressionSource: 'DirectLake - LH_API_INGESTION'
+

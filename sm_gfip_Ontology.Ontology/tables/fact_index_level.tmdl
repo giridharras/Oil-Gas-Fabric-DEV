@@ -1,0 +1,46 @@
+table fact_index_level
+	lineageTag: f9056a1b-721e-460a-8322-1509e5ac34f6
+	sourceLineageTag: b6edd176-6366-434a-8477-175c86586852
+
+	column index_key
+		dataType: int64
+		lineageTag: f9d696da-c517-409f-8d30-bcf8a7b150e0
+		sourceLineageTag: 878ac58a-82ab-4d97-9ddf-fbd692680319
+		sourceColumn: index_key
+
+	column date_key
+		dataType: int64
+		lineageTag: a9280465-643b-4aa6-90fd-02b232656f4f
+		sourceLineageTag: d651bbf9-88d0-4eeb-aa7c-805ca6a01e12
+		sourceColumn: date_key
+
+	column level
+		dataType: double
+		lineageTag: 3ca46863-04f1-4b25-9c32-52b3de65a338
+		sourceLineageTag: fb4f9392-379b-48f3-a460-1a70a580d66c
+		sourceColumn: level
+
+	column daily_return
+		dataType: double
+		lineageTag: 59c42cb5-c28b-419c-b325-0b1614479e51
+		sourceLineageTag: 75bcc7a4-069d-4d42-b123-42a3385c5ec9
+		sourceColumn: daily_return
+
+	partition fact_index_level-partition = entity
+		mode: directQuery
+		source
+			entityName: fact_index_level
+			expressionSource: 'DirectQuery to AS - ea224e1d-5a3b-4811-b9c3-7d78c27f52c9/e00768f8-f7e7-4e56-b8af-80918c8772ca'
+
+		annotation ONT_WorkspaceId = ea224e1d-5a3b-4811-b9c3-7d78c27f52c9
+
+		annotation ONT_ItemId = e00768f8-f7e7-4e56-b8af-80918c8772ca
+
+		annotation ONT_ItemKind = Dataset
+
+		annotation ONT_ItemName = sm_gfip
+
+		annotation ONT_WorkspaceName = Gopu Exploration
+
+		annotation ONT_PinnedAtUtc = 2026-11-01T10:57:49.7634474+00:00
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "Oil&Gas Data"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "06ff6180-d7a2-b498-4c7e-106324b19212"
+  }
+}
